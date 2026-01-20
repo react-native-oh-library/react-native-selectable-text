@@ -1,0 +1,16 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "module description"
+    },
+    {
+      "name": "Selectable_text_desc",
+      "value": "description"
+    },
+    {
+      "name": "Selectable_text_label",
+      "value": "label"
+    }
+  ]
+}
