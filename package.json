@@ -1,23 +1,32 @@
 {
-  "name": "@astrocoders/react-native-selectable-text",
-  "version": "1.5.1",
+  "name": "@react-native-ohos/react-native-selectable-text",
+  "harmony": {
+    "alias": "react-native-selectable-text"
+  },
+  "version": "1.5.2-rc.1",
   "description": "React Native component used to provide the features of pass different context menu items and events",
   "main": "index.js",
   "types": "index.d.ts",
+  "repository": "https://github.com/react-native-oh-library/react-native-selectable-text",
   "homepage": "https://github.com/Astrocoders/react-native-selectable-text",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "codegen-lib": "react-native codegen-lib-harmony --no-safety-check --npm-package-name react-native-selectable-text --cpp-output-path ./harmony/selectable_text/src/main/cpp/generated --ets-output-path ./harmony/selectable_text/src/main/ets/generated --turbo-modules-spec-paths ./src  --arkts-components-spec-paths ./src"
   },
   "keywords": [
     "react-native"
   ],
   "author": "Astrocoders <contact@astrocoders.com>",
   "license": "MIT",
-  "peerDependencies": {
-    "react-native": "^0.41.2"
-  },
+ 
   "dependencies": {
+	"react-native": "*",
+    "metro": "0.82.5",
+    "memfs":"4.17.2",
     "fast-memoize": "^2.5.1",
     "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "@rnoh/react-native-harmony-cli": "npm:@react-native-oh/react-native-harmony-cli@^0.0.27"
   }
 }
