@@ -1,0 +1,11 @@
+[
+    {
+        "Name": "react-native-selectable-text",
+        "License": "MIT License",
+        "License File": "https://github.com/Astrocoders/react-native-selectable-text/blob/master/LICENSE",
+        "Version Number": "1.5.1",
+        "Owner" : "xiafeng@huawei.com",
+        "Upstream URL": "https://github.com/Astrocoders/react-native-selectable-text",
+        "Description": "A React Native library that enables text selection with customizable context menu actions."
+    }
+]
