@@ -29,6 +29,8 @@
 #include <arkui/native_interface.h>
 #include <hilog/log.h>
 #include <dlfcn.h>
+#include <deviceinfo.h>
+#include <info/application_target_sdk_version.h>
 
 #undef LOG_DOMAIN
 #undef LOG_TAG
@@ -74,6 +76,12 @@ void SelectableTextViewNode::bindMenuToChildNode() {
     if (m_childTextNode == nullptr) {
         return;
     }
+
+#if defined(OH_CURRENT_API_VERSION) && OH_CURRENT_API_VERSION >= 22
+    if (OH_GetSdkApiVersion() < 22) {
+        RNST_LOGE("Skip API 22 logic: Current Device SDK %{public}d < 22", OH_GetSdkApiVersion());
+        return;
+    }    
     
     // 使用 dlsym 动态加载所有 API 22+ 函数
     void* lib = dlopen("libace_ndk.z.so", RTLD_LAZY);
@@ -201,6 +209,7 @@ void SelectableTextViewNode::bindMenuToChildNode() {
     }
     
     dlclose(lib);
+ #endif   
 }
 
 void SelectableTextViewNode::onChildNodeInserted(ArkUI_NodeHandle childNode) {
