@@ -3,7 +3,7 @@
   "harmony": {
     "alias": "react-native-selectable-text"
   },
-  "version": "1.5.2-rc.2",
+  "version": "1.5.2-rc.3",
   "description": "React Native component used to provide the features of pass different context menu items and events",
   "main": "index.js",
   "types": "index.d.ts",
