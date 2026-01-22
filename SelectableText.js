@@ -134,11 +134,15 @@ export const SelectableText = ({
             {text}
           </Text>
         ))
-        : [value]
+        : [<Text key={v4()}>{value}</Text>]
     );
-    if (props.appendToChildren) {
-      textValue.push(props.appendToChildren);
-    }
+	if (props.appendToChildren) {
+	  textValue.push(
+		React.cloneElement(props.appendToChildren, {
+		  key: props.appendToChildren.key || v4()
+		})
+	  );
+	}
   }
   return (
     <RNSelectableText
