@@ -213,9 +213,25 @@ void SelectableTextViewNode::bindMenuToChildNode() {
 }
 
 void SelectableTextViewNode::onChildNodeInserted(ArkUI_NodeHandle childNode) {
-    // 检查子节点类型，只对 Text 节点绑定菜单
-    int32_t nodeType = OH_ArkUI_NodeUtils_GetNodeType(childNode);
-    if (nodeType != ARKUI_NODE_TEXT) {
+    // Use dynamic loading for OH_ArkUI_NodeUtils_GetNodeType (API 14+) to avoid crash on API 12
+    int32_t nodeType = ARKUI_NODE_TEXT;
+    bool isTypeCheckSuccess = false;
+
+#if defined(OH_CURRENT_API_VERSION) && OH_CURRENT_API_VERSION >= 14
+    if (OH_GetSdkApiVersion() >= 14) {
+        void* lib = dlopen("libace_ndk.z.so", RTLD_LAZY);
+        if (lib) {
+            auto fnGetNodeType = (int32_t (*)(ArkUI_NodeHandle))dlsym(lib, "OH_ArkUI_NodeUtils_GetNodeType");
+            if (fnGetNodeType) {
+                nodeType = fnGetNodeType(childNode);
+                isTypeCheckSuccess = true;
+            }
+            dlclose(lib);
+        }
+    }
+#endif
+
+    if (isTypeCheckSuccess && nodeType != ARKUI_NODE_TEXT) {
         RNST_LOGE("Child node is not a Text node (type: %{public}d), menu binding skipped", nodeType);
         return;
     }
