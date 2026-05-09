@@ -1,7 +1,13 @@
 {
   "name": "@react-native-ohos/react-native-selectable-text",
   "harmony": {
-    "alias": "react-native-selectable-text"
+    "alias": "react-native-selectable-text",
+    "autolinking": {
+      "etsPackageClassName": "SelectableTextViewPackage",
+      "cppPackageClassName": "SelectableTextViewPackage",
+      "cmakeLibraryTargetName": "rnoh_selectable_text",
+      "ohPackageName": "@react-native-ohos/react-native-selectable-text"
+    }	
   },
   "version": "1.5.2-1",
   "description": "React Native component used to provide the features of pass different context menu items and events",

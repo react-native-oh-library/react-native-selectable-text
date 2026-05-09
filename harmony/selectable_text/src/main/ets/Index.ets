@@ -21,5 +21,10 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
- 
- export * from './generated/index'
+
+import { RNOHPackage } from '@rnoh/react-native-openharmony'
+
+export * from './generated/index'
+
+export default class SelectableTextViewPackage extends RNOHPackage {
+}
