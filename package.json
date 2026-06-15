@@ -9,7 +9,7 @@
       "ohPackageName": "@react-native-ohos/react-native-selectable-text"
     }	
   },
-  "version": "1.6.0-rc.1",
+  "version": "1.6.0-beta.1",
   "description": "React Native component used to provide the features of pass different context menu items and events",
   "main": "index.js",
   "types": "index.d.ts",
